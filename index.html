@@ -19,6 +19,44 @@ body.modal-open {
 overflow-y: auto !important;
 padding-right: 0 !important;
 }
+
+/*滚动监听*/
+body {
+  position: relative;
+}
+ul.nav-pills {
+    top: 20px;
+    /*position: fixed;*/
+}
+div.col-sm-9 div {
+    height: 250px;
+    font-size: 28px;
+}
+#section1,#sect1 {color: #fff; background-color: #1E88E5;}
+#section2,#sect2 {color: #fff; background-color: #673ab7;}
+#section3,#sect3 {color: #fff; background-color: #ff9800;}
+#section41,#sect41 {color: #fff; background-color: #00bcd4;}
+#section42,#sect42 {color: #fff; background-color: #009688;}
+
+@media screen and (max-width: 810px) {
+    #section1, #section2, #section3, #section41, #section42  {
+        margin-left: 150px;
+    }
+}
+#navbar-example{
+    position: relative;
+}
+#myScrollspy{
+    top:10px;
+    width: 220px;
+}
+.nav-stacked li{
+    width: 
+}
+.nav2{
+  z-index: 999999;
+}
+/*end 滚动监听*/
 </style>
 <body>
 
@@ -283,21 +321,12 @@ padding-right: 0 !important;
     </div>
     <h2>进度条</h2>
     <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%;">
-        60%
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+        33%
       </div>
     </div>
-    <h2>具有响应式特性的嵌入内容</h2>
-    <!-- 16:9 aspect ratio -->
-    <div class="embed-responsive embed-responsive-16by9">
-      <iframe class="embed-responsive-item" src="date.html"></iframe>
-    </div>
-
-    <!-- 4:3 aspect ratio -->
-    <div class="embed-responsive embed-responsive-4by3">
-      <iframe class="embed-responsive-item" src="date1.html"></iframe>
-    </div>
-
+    
+    <hr>
     <h2>模态框</h2>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -326,8 +355,8 @@ padding-right: 0 !important;
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModa2">
       按钮2
     </button>
-    <!-- Modal -->
-    <div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <!-- Modal2 -->
+    <div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -339,12 +368,145 @@ padding-right: 0 !important;
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary" id="modal_save1" >Save changes</button>
           </div>
         </div>
       </div>
     </div>
-   
+    <button type="button" class="btn btn-primary btn-lg" id="modal_btn3" >
+      按钮3
+    </button>
+    <!--如果添加了一个带有有效 URL 的 href，则会加载其中的内容。-->
+    <button type="button" class="btn btn-primary btn-lg" id="modal_btn4" data-toggle="modal"  data-target="#myModa4" href="nav.html" >
+      按钮4
+    </button>
+    <!-- Modal4  -->
+    <div class="modal fade" id="myModa4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">444</h4>
+          </div>
+          <div class="modal-body">
+            dddd
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="modal_save1" >Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <h2>滚动监听 scrollspy.js</h2>
+    <div class="container" data-spy="scroll" id="navbar-example" data-offset="20" >
+        <div class="row">
+            <nav class="col-sm-3" id="myScrollspy">
+                <div class="container-fluid"> 
+                <div class="container-fluid"> 
+                <ul class="nav nav-pills nav-stacked"  >
+                    <li class="active"><a href="#sect1">sect 1</a></li>
+                    <li><a href="#sect2">sect 2</a></li>
+                    <li><a href="#sect3">sect 3</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">sect 4 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#sect41">sect 4-1</a></li>
+                            <li><a href="#sect42">sect 4-2</a></li>                     
+                        </ul>
+                    </li>
+                </ul>
+                </div>  
+                </div>      
+            </nav>
+            <div class="col-sm-9 pull-right">
+                <div id="sect1">    
+                    <h1>sect 1</h1>
+                    <p>Try to scroll this sect and look at the navigation list while scrolling!</p>
+                </div>
+                <div id="sect2"> 
+                    <h1>sect 2</h1>
+                    <p>Try to scroll this sect and look at the navigation list while scrolling!</p>
+                </div>        
+                <div id="sect3">         
+                    <h1>sect 3</h1>
+                    <p>Try to scroll this sect and look at the navigation list while scrolling!</p>
+                </div>
+                <div id="sect41">         
+                    <h1>sect 4-1</h1>
+                    <p>Try to scroll this sect and look at the navigation list while scrolling!</p>
+                </div>      
+                <div id="sect42">         
+                    <h1>Section 4-2</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>    
+    <div id="hh2" ></div>
+
+    <!-- <h3>滚动监听 2</h3>
+    <div class="container" data-spy="scroll" id="navbar-example" data-offset="20" >
+        <div class="row" >
+            
+        </div>
+        <div class="row">
+            <div class="col-md-12" id="myScrollspy2" style="position:fixed;top:300px;left:0;" >
+                <ul class="nav nav-pills nav2"  >
+                    <li class="col-md-2" ><a href="#section1">Section 1</a></li>
+                    <li class="col-md-2"><a href="#section2">Section 2</a></li>
+                    <li class="col-md-2"><a href="#section3">Section 3</a></li>
+                    <li class="col-md-2 dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Section 4 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#section41">Section 4-1</a></li>
+                            <li><a href="#section42">Section 4-2</a></li>                     
+                        </ul>
+                    </li>
+                </ul>     
+            </div>
+            <div class="col-sm-9 pull-right">
+                <div id="section1">    
+                    <h1>Section 1</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>
+                <div id="section2"> 
+                    <h1>Section 2</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>        
+                <div id="section3">         
+                    <h1>Section 3</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>
+                <div id="section41">         
+                    <h1>Section 4-1</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>      
+                <div id="section42">         
+                    <h1>Section 4-2</h1>
+                    <p>Try to scroll this section and look at the navigation list while scrolling!</p>
+                </div>
+                
+            </div>
+        </div>
+    </div> -->
+
+
+
+    
+    <hr>
+    <h2>具有响应式特性的嵌入内容</h2>
+    <!-- 16:9 aspect ratio -->
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="date.html"></iframe>
+    </div>
+
+    <!-- 4:3 aspect ratio -->
+    <div class="embed-responsive embed-responsive-4by3">
+      <iframe height="500" class="embed-responsive-item" src="date1.html"></iframe>
+    </div>
 
 </div>
 <!--全屏栅格容器-->
@@ -359,13 +521,34 @@ padding-right: 0 !important;
 $('#myTabs a').click(function (e) {
   e.preventDefault()   //不要执行与事件关联的默认动作（如果存在这样的动作）
   $(this).tab('show')
+});
+// 模态框
+$("#modal_btn3").on("click",function(){
+    $('#myModa2').modal('show')  //modal 手动启动
+})
+$("#modal_save1").on("click",function(){
+    console.log("save")
+    $('#myModa2').modal('hide')  //modal 手动关闭
+})
+// 此事件在模态框被隐藏（并且同时在 CSS 过渡效果完成）之后被触发。
+$('#myModa2').on('hidden.bs.modal', function (e) {
+    alert(1)
 })
 
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
+$('body').scrollspy({ target: '#navbar-example' })
 
-$('#myModa2').modal()  //modal 启动
+$(document).scroll(function(){
+    var h = $(document).scrollTop();
+    var gh = $('#navbar-example')[0].offsetTop;
+    var hh2 = $('#hh2')[0].offsetTop-200;
+    // console.log(gh)
+    // console.log(hh2)
+    if(h>gh&&h<hh2){
+        $("#myScrollspy").css({"position":"fixed"})
+    }else{
+        $("#myScrollspy").css({"position":"relative"})
+    }
+})
 
 </script>
 
